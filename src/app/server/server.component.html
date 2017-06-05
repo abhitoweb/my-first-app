@@ -1,0 +1,11 @@
+
+    
+
+<div class="container" (click)="onServerDelete()">
+
+  <p [ngStyle]='{backgroundColor: getColor()}'
+    [ngClass]="{online: serverStatus == 'online'}" >
+    {{ 'Server' }} with server Id <b>{{ serverId }}</b> and name: <b>{{server_ele.name}}</b> is {{getServerStatus()}}</p>
+    
+  <ng-content></ng-content>
+</div>
