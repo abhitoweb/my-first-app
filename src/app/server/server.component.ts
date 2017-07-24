@@ -38,6 +38,15 @@ OnDestroy{
  constructor() { 
      console.log("server Constructor called!");
  }
+ getServerStatus(){
+     return this.serverStatus;
+ }
+getColor(){
+     return this.serverStatus=='offline'?'red':'green';
+ }
+ onServerDelete(){
+     this.serverDelete.emit({index:this.index, deletedServerName:this.server_ele});
+ }
  ngOnInit() {
     console.log("server ngOnInit called!");
   }
@@ -62,14 +71,5 @@ OnDestroy{
   }
   ngOnDestroy(){
       console.log("server ngOnDestroy called!");
-  }
- getServerStatus(){
-     return this.serverStatus;
- }
-getColor(){
-     return this.serverStatus=='offline'?'red':'green';
- }
- onServerDelete(){
-     this.serverDelete.emit({index:this.index, deletedServerName:this.server_ele});
- }
+  } 
 }

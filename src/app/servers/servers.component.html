@@ -20,9 +20,9 @@
 
 <!--<p>Button status:</p> <p [innerText]="allowNewServer"></p> -->
 <!--<p>{{serverCreationStatus}}</p>-->
-<p *ngIf="serverCreated; else noServer">{{serverCreationStatus}}</p> 
+<p *ngIf="serverCreated; else noServer" >{{serverCreationStatus}}</p> 
 <ng-template #noServer>
-    <p>No server Created!</p>
+    <p >No server Created!</p>
 </ng-template>
 
 <app-server *ngFor="let server of servers; let i = index"
@@ -33,3 +33,21 @@
 
     <div class="well well-sm">Descripion of <b>{{server.name}}</b> : <b>{{server.content}}</b></div>
 </app-server>
+
+<div>
+    No of server = <span [ngSwitch]="servers.length">
+                        <span *ngSwitchCase="0"> 0</span>
+                        <span *ngSwitchCase="1"> 1</span>
+                        <span *ngSwitchCase="2"> 2</span>
+                        <span *ngSwitchCase="3"> 3</span>
+                        <span *ngSwitchDefault> more than 3</span>
+                    </span>
+
+</div>
+
+<div *aapUnless ="allowNewServer"><!-- customize structure directive-->
+    <p appBasicHighlight >Text with Basic Directive Highlight</p>
+</div>
+<div *ngIf="allowNewServer">
+ <p appBetterHighlight [defaultColor]="'yellow'" highlightColor = 'brown'>Text with Better Directive Highlight</p>
+</div>

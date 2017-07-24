@@ -8,6 +8,7 @@ import { Component, OnInit, Input,ViewEncapsulation ,ViewChild, ElementRef} from
 })
 export class ServersComponent implements OnInit {
 //*****************data members*****************
+// num = 2;
 allowNewServer = false;
 serverCreationStatus = "No server created"
 // serverName = "Test Server";
